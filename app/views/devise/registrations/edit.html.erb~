@@ -4,14 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <p>
-      <%= f.label :login %><br />
-      <%= f.text_field :login %>
-    </p>
-    <p>
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </p>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

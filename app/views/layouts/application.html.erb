@@ -9,6 +9,13 @@
   <body> 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+		<% if current_user.present? %>
+			<% '<a href="users/sign_out">Sign Out</a>' %>
+		<% else %>
+			<% '<a href="users/sign_in">Sign In</a>' %>
+		<% end %>
+
     <%= yield %>
   </body>
 </html>

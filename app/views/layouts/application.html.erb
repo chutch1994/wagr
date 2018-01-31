@@ -10,13 +10,16 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-		<% if user_signed_in? %>
-			<h3>Hello <%= current_user.first_name %>!</h3>
-			<%= link_to 'Edit Profile',edit_user_registration_path %>
-			<%= link_to "Log out", destroy_user_session_path %>
-		<% else %>
-			<%= link_to "login", new_user_session_path%>
-		<% end %>
+		<div align="right">
+			<% if user_signed_in? %>
+				<h3>Hello <%= current_user.first_name %>!</h3>
+				<%= link_to 'Edit Profile',edit_user_registration_path %>
+				<%= link_to "Sign Out", destroy_user_session_path %>
+			<% else %>
+				<%= link_to "Sign In", new_user_session_path%>
+				New Member? <%= link_to "Register!", new_user_registration_path%>
+			<% end %>
+		</div>
 
     <%= yield %>
   </body>

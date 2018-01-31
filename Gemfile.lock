@@ -186,7 +186,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
-  devise (~> 4.1)
+  devise
   foreman
   jbuilder (~> 2.5)
   pg (~> 0.18.0)

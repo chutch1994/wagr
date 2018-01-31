@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bcrypt', platforms: :ruby
-gem 'devise', '~> 4.1'
+gem 'devise'
 gem 'foreman'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

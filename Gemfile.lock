@@ -182,7 +182,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
-  devise
+  devise (~> 4.1)
   jbuilder (~> 2.5)
   pg (~> 0.18.0)
   puma (~> 3.7)

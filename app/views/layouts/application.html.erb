@@ -11,7 +11,8 @@
     <p class="alert"><%= alert %></p>
 
 		<% if user_signed_in? %>
-			<h3>Hello <%= current_user.username %>!</h3>
+			<h3>Hello <%= current_user.first_name %>!</h3>
+			<%= link_to 'Edit Profile',edit_user_registration_path %>
 			<%= link_to "Log out", destroy_user_session_path %>
 		<% else %>
 			<%= link_to "login", new_user_session_path%>

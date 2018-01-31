@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bcrypt', platforms: :ruby
-gem 'devise'
+gem 'devise', '~> 4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgres as the database for Active Record

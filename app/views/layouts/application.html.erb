@@ -10,10 +10,11 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-		<% if current_user.present? %>
-			<% '<a href="users/sign_out">Sign Out</a>' %>
+		<% if user_signed_in? %>
+			<h3>Hello <%= current_user.username %>!</h3>
+			<%= link_to "Log out", destroy_user_session_path %>
 		<% else %>
-			<% '<a href="users/sign_in">Sign In</a>' %>
+			<%= link_to "login", new_user_session_path%>
 		<% end %>
 
     <%= yield %>

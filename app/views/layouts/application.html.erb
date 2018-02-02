@@ -16,6 +16,10 @@
 				<%= link_to 'Edit Profile',edit_user_registration_path %>
 				<br />
 				<%= link_to "Sign Out", destroy_user_session_path %>
+				<% if current_user.admin? %>
+					<br />
+					<%= link_to "New Game", new_game_path %>
+				<% end %>
 			<% else %>
 				<%= link_to "Sign In", new_user_session_path%>
 				<br />

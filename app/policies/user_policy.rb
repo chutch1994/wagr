@@ -1,17 +1,25 @@
 class UserPolicy
-	attr_reader :user, :users
+	attr_reader :current_user, :user
 
-	def initialize(user, users)
+	def initialize(current_user, user)
+		@current_user = current_user
 		@user = user
-		@users = users
 	end
 
 	def index?
-		puts "is admin: #{ user.admin? }"
-		user.admin?
+		@current_user.admin?
 	end
 
-	def update?
-		user.admin?
+	def show?
+		@current_user
+	end
+
+	def edit?	
+		@current_user and (@current_user.admin? or @current_user == @user)
+	end	
+	
+	def update?	
+		puts "signed in: #{ @current_user }"
+		@current_user.admin? or @current_user == @user
 	end	
 end

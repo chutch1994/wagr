@@ -9,10 +9,29 @@ class UserController < ApplicationController
 		rescue
 			redirect_to '/', notice: 'Not Authorized!'
 		end
-  end
+	end
+
+  # GET /games/1
+  # GET /games/1.json
+  def show	
+		@user = User.find(params[:id])
+		begin
+			authorize @user
+			render :edit
+		rescue
+			redirect_to '/', notice: "Not Authorized!"
+	  end
+	end
 
   # GET /user/1/edit
   def edit
+		@user = User.find(params[:id])
+		begin
+			authorize @user
+			render :edit
+		rescue
+			redirect_to '/', notice: "Not Authorized!"
+		end
   end
 
   # PATCH/PUT /user/1

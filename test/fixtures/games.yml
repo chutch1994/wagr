@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_team: MyString
+  away_team: MyString
+  date: 2018-02-01 20:16:09
+  favored_team: MyString
+  spread: 9.99
+
+two:
+  home_team: MyString
+  away_team: MyString
+  date: 2018-02-01 20:16:09
+  favored_team: MyString
+  spread: 9.99

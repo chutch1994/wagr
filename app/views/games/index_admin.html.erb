@@ -1,5 +1,4 @@
-<h1>Scioto Reserve Football Pool</h1>
-<p>For all your degenerate sports gambling needs.</p>
+<p id="notice"><%= notice %></p>
 
 <h1>Games</h1>
 
@@ -23,7 +22,14 @@
         <td><%= game.date %></td>
         <td><%= game.favored_team %></td>
         <td><%= game.spread %></td>
+        <td><%= link_to 'Show', game %></td>
+        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Game', new_game_path %>

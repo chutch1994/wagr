@@ -7,6 +7,7 @@ class UserPolicy
 	end
 
 	def index?
+		puts "is admin: #{ user.admin? }"
 		user.admin?
 	end
 

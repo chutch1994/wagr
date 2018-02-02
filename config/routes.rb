@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	resources :users
+	resources :user
   resources :games
   devise_for :users
   root 'welcome#index'

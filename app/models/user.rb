@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
 	attr_accessor :login
 
+	has_many :players, dependent: :destroy 
+	
 	validates :username, presence: :true, uniqueness: { case_sensitive: false }
 
   def self.find_for_database_authentication(warden_conditions)

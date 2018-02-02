@@ -5,10 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'autoprefixer-rails'
 gem 'bcrypt', platforms: :ruby
+gem 'bootstrap-sass', '~>3.2.0'
 gem 'devise'
 gem 'foreman'
+gem 'jquery-rails'
 gem 'pundit'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgres as the database for Active Record

@@ -1,29 +1,61 @@
 <h1>Scioto Reserve Football Pool</h1>
 <p>For all your degenerate sports gambling needs.</p>
 
-<h1>Games</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Home team</th>
-      <th>Away team</th>
-      <th>Date</th>
-      <th>Favored team</th>
-      <th>Spread</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="main-container" class="container-fluid">
+	<div class="row">
+		<div class="col-lg-6">
+			<h2>Games</h2>
+			<table class="table">
+  			<thead>
+    			<tr>
+      			<th scope="col">Home team</th>
+      			<th scope="col">Away team</th>
+      			<th scope="col">Date</th>
+      			<th scope="col">Favored team</th>
+      			<th scope="col">Spread</th>
+    			</tr>
+  			</thead>
 
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.home_team %></td>
-        <td><%= game.away_team %></td>
-        <td><%= game.date %></td>
-        <td><%= game.favored_team %></td>
-        <td><%= game.spread %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  			<tbody>
+    			<% @games.each do |game| %>
+      			<tr>
+								<td><%= game.home_team %></td>
+        				<td><%= game.away_team %></td>
+        				<td><%= game.date %></td>
+        				<td><%= game.favored_team %></td>
+        				<td><%= game.spread %></td>
+								</div>
+							</div>
+      			</tr>
+    			<% end %>
+  			</tbody>
+			</table>
+		</div>
+
+		<div class="col-xs-3">
+			<h2>Leaderboard</h2>
+			<table class="table">
+  			<thead>
+    			<tr>
+						<th scope="col">Rank</th>
+      			<th scope="col">Name</th>
+      			<th scope="col">Money</th>
+    			</tr>
+  			</thead>
+
+  			<tbody>
+					<% i = 1 %>
+    			<% @players.each do |player| %>
+      			<tr>
+							<th scope="row"><%= i %></th>
+        			<td><%= player.name %></td>
+        			<td><%= number_to_currency player.money %></td>
+      			</tr>
+						<% i += 1 %>
+    			<% end %>
+  			</tbody>
+			</table>
+		</div>
+	</div>
+</div>

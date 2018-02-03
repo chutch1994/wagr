@@ -2,12 +2,12 @@
 
 <h1>Players</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-			<th>Name</th>
-			<th>User</th>
-			<th>Money</th>
+      <th scope="col">Name</th>
+      <th scope="col">User</th>
+      <th scope="col">Money</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-				<td><%= player.name %></td>
-				<td><%= User.where(id: player.user_id).first.username %></td>
-				<td><%= player.money %></td>
+	<td><%= player.name %></td>
+	<td><%= User.where(id: player.user_id).first.username %></td>
+	<td><%= player.money %></td>
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>

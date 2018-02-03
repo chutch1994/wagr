@@ -1,0 +1,31 @@
+<%= form_with(model: bet, local: true) do |form| %>
+  <% if bet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bet.errors.count, "error") %> prohibited this bet from being saved:</h2>
+
+      <ul>
+      <% bet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :team %>
+    <%= form.text_field :team, id: :bet_team %>
+  </div>
+  <div class="field">
+    <%= form.label :wager %>
+    <%= form.text_field :wager, id: :bet_wager %>
+  </div>
+
+  <div class="field">
+    <%= form.label :player_id %>
+    <% options = options_from_collection_for_select(Player.where(user_id: current_user.id), 'id', 'name') %>
+    <%= form.select :all_val, options %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

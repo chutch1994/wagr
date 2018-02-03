@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-	attr_accessor :login
+  attr_accessor :login
 
-	has_many :players, dependent: :destroy 
+  has_many :players, dependent: :destroy 
 	
-	validates :username, presence: :true, uniqueness: { case_sensitive: false }
+  validates :username, presence: :true, uniqueness: { case_sensitive: false }
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

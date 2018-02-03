@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bets</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Team</th>
+      <th scope="col">Wager</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bets.each do |bet| %>
+      <tr>
+	<td><%= Player.find_by_id(bet.player_id).name %></td>
+	<td><%= bet.team %></td>
+	<td><%= bet.wager %></td>
+        <td><%= link_to 'Show', bet %></td>
+        <td><%= link_to 'Edit', edit_bet_path(bet) %></td>
+        <td><%= link_to 'Destroy', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bet', new_bet_path %>

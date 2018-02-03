@@ -17,40 +17,39 @@
       <% end %>
     </div>
 
-		<script type="text/javascript">
-			$(document).ready(function(){
-  			setTimeout(function(){
-    			$('#flash').remove();
-  			}, 5000);
- 			})
-		</script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+	setTimeout(function(){
+	  $('#flash').remove();
+	}, 5000);
+      })
+    </script>
 
-
-		<div id="main-container" class="container-fluid">
-			<div class="col-lg-2">
-				<% if user_signed_in? %>
-					<h3>Hello <%= current_user.first_name %>!</h3>
-					<%= link_to 'Edit Profile',edit_user_registration_path %>
-					<br />
-					<%= link_to "Sign Out", destroy_user_session_path %>
-					<br />
-					<%= link_to "Games", games_path %>
-					<br />
-					<%= link_to "New Player", new_player_path %>
-					<% if current_user.admin? %>
-						<br />
-						<%= link_to "New Game", new_game_path %>
-					<% end %>
-				<% else %>
-					<%= link_to "Sign In", new_user_session_path%>
-					<br />
-					New Member? <%= link_to "Register!", new_user_registration_path%>
-				<% end %>
-			</div>
-			
-			<div class="col-lg-10">
-    		<%= yield %>
-			</div>
-		</div>
+    <div id="main-container" class="container-fluid">
+      <div class="col-lg-2">
+	<% if user_signed_in? %>
+	    <h3>Hello <%= current_user.first_name %>!</h3>
+	    <%= link_to 'Edit Profile',edit_user_registration_path %>
+	    <br />
+	    <%= link_to "Sign Out", destroy_user_session_path %>
+	    <br />
+	    <%= link_to "Games", games_path %>
+	    <br />
+	    <%= link_to "New Player", new_player_path %>
+	    <% if current_user.admin? %>
+	    <br />
+	    <%= link_to "New Game", new_game_path %>
+	  <% end %>
+	  <% else %>
+	  <%= link_to "Sign In", new_user_session_path%>
+	  <br />
+	  New Member? <%= link_to "Register!", new_user_registration_path%>
+	<% end %>
+      </div>
+		      
+      <div class="col-lg-10">
+	<%= yield %>
+      </div>
+    </div>
   </body>
 </html>

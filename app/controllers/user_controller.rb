@@ -41,6 +41,7 @@ class UserController < ApplicationController
 		authorize @user
     respond_to do |format|
       if @user.update(user_params)
+				flash[:success] = "User successfully updated!"
         format.html { redirect_to @user, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

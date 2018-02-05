@@ -22,9 +22,14 @@
 
   <div class="field">
     <%= form.label :player_id %>
-    <% options = options_from_collection_for_select(Player.where(user_id: current_user.id), 'id', 'name') %>
-    <%= form.select :all_val, options %>
+    <%= form.select :player_id, options_from_collection_for_select(Player.where(user_id: current_user.id), :id, :name), id: :bet_player_id %>
   </div>
+
+  <div class="field">
+    <%= form.label :game_id %>
+    <%= form.text_field :game_id, value: params[:game_id], id: :bet_game_id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

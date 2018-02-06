@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(version: 20180203215820) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "name"
-    t.integer "money"
+    t.integer "money", default: 50000
+    t.integer "bettable_money", default: 50000
   end
 
   create_table "users", force: :cascade do |t|

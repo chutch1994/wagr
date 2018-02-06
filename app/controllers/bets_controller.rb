@@ -15,6 +15,13 @@ class BetsController < ApplicationController
   # GET /bets/new
   def new
     @bet = Bet.new
+    begin
+      authorize @bet
+      @players = current_user.players
+    rescue
+      flash[:failure] = "Please sign in or make an account to place a bet"
+      redirect_to '/'
+    end
   end
 
   # GET /bets/1/edit
@@ -25,15 +32,13 @@ class BetsController < ApplicationController
   # POST /bets.json
   def create
     @bet = Bet.new(bet_params)
-    @bet[:game_id] = params[:game_id]
-    @bet[:player_id] = params[:player_id]
- 
     respond_to do |format|
       if @bet.save
         format.html { redirect_to @bet, notice: 'Bet was successfully created.' }
         format.json { render :show, status: :created, location: @bet }
       else
-        format.html { render :new }
+	flash[:failure] = @bet.errors.messages.first
+        format.html { redirect_to :action => 'new', :controller => 'bets', :game_id => @bet.game_id }
         format.json { render json: @bet.errors, status: :unprocessable_entity }
       end
     end
@@ -71,6 +76,6 @@ class BetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bet_params
-      params.require(:bet).permit(:team, :wager)
+      params.require(:bet).permit(:team, :wager, :player_id, :game_id)
     end
 end

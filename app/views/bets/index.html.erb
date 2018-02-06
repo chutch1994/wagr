@@ -6,6 +6,9 @@
   <thead>
     <tr>
       <th scope="col">Player</th>
+      <th scope="col">Away Team</th>
+      <th></th>
+      <th scope="col">Home Team</th>
       <th scope="col">Team</th>
       <th scope="col">Wager</th>
       <th colspan="3"></th>
@@ -14,8 +17,12 @@
 
   <tbody>
     <% @bets.each do |bet| %>
+      <% game = Game.find_by_id(bet.game_id) %>
       <tr>
 	<td><%= Player.find_by_id(bet.player_id).name %></td>
+	<td><%= game.home_team %></td>
+	<td>@</td>
+	<td><%= game.away_team %></td>
 	<td><%= bet.team %></td>
 	<td><%= bet.wager %></td>
         <td><%= link_to 'Show', bet %></td>

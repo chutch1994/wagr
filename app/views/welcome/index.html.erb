@@ -25,7 +25,14 @@
 	      <td><%= game.date %></td>
 	      <td><%= game.favored_team %></td>
 	      <td><%= game.spread %></td>
-	      <td><%= link_to 'Place bet', :action => 'new', :controller => 'bets', :game_id => game.id%></td> 
+	      <% if current_user %>
+		<% has_bet = game.bets.each { |bet| current_user.players.pluck(:id).include? bet.player_id }.first %>
+		<% if has_bet %>
+		  <td><%= link_to 'Edit bet', edit_bet_path(has_bet)%></td> 
+		<% else %>
+		  <td><%= link_to 'Place bet', :action => 'new', :controller => 'bets', :game_id => game.id%></td> 
+		<% end %>
+	      <% end %>
 	    </tr>
 	  <% end %>
 	</tbody>

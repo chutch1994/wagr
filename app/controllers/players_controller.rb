@@ -15,12 +15,12 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
-		begin
-			authorize @player
-			render :new
-		rescue
-			redirect_to '/', notice: 'Not Authorized!'
-		end
+      begin
+	authorize @player
+	render :new
+      rescue
+	redirect_to '/', notice: 'Not Authorized!'
+      end
   end
 
   # GET /players/1/edit
@@ -31,8 +31,9 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(player_params)
-		@player.user_id = current_user.id
-		@player.money = 50000
+    @player.user_id = current_user.id
+    @player.money = 50000
+    @player.bettable_money = 50000
     respond_to do |format|
       if @player.save
         format.html { redirect_to @player, notice: 'Player was successfully created.' }

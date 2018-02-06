@@ -13,7 +13,9 @@
 
   <div class="field">
     <%= form.label :team %>
-    <%= form.text_field :team, id: :bet_team %>
+    <% game = Game.find_by_id(params[:game_id]) %>
+    <% teams = [game[:home_team], game[:away_team]] %>
+    <%= form.select :team, teams, id: :bet_team %>
   </div>
   <div class="field">
     <%= form.label :wager %>
@@ -25,11 +27,10 @@
     <%= form.select :player_id, options_from_collection_for_select(Player.where(user_id: current_user.id), :id, :name), id: :bet_player_id %>
   </div>
 
-  <div class="field">
+  <div class="field" style="display: none">
     <%= form.label :game_id %>
     <%= form.text_field :game_id, value: params[:game_id], id: :bet_game_id %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

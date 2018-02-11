@@ -1,0 +1,23 @@
+<h2>Leaderboard</h2>
+  <table class="table">
+    <thead>
+      <tr>
+	<th scope="col">Rank</th>
+	<th scope="col">Name</th>
+	<th scope="col">Money</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% i = 1 %>
+      <% @players.order("money desc").first(10).each do |player| %>
+	<tr>
+	  <th scope="row"><%= i %></th>
+	  <td><%= player.name %></td>
+	  <td><%= number_to_currency player.money %></td>
+	</tr>
+	<% i += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

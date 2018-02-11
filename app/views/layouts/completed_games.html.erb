@@ -1,0 +1,29 @@
+<h2>Completed Games</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Away team</th>
+      <th scope="col"></th>
+      <th scope="col">Home team</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.where.not(:away_team_score => nil).each do |game| %>
+      <tr>
+	<% if game.away_team_score > game.home_team_score %>
+	  <td><strong><%= game.away_team %></strong></td>
+	  <td><strong><%= game.away_team_score %></strong</td> 
+	  <td><%= game.home_team%></td>
+	  <td><%= game.home_team_score %></td>
+	<% else %> 
+	  <td><%= game.away_team %></td>
+	  <td><%= game.away_team_score %></td>
+	  <td><strong><%= game.home_team%></strong></td>
+	  <td><strong><%= game.home_team_score %></strong></td>
+	<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,49 @@
+<h2>Games</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Home team</th>
+      <th scope="col">Away team</th>
+      <th scope="col">Date</th>
+      <th scope="col">Favored team</th>
+      <th scope="col">Spread</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.where(:away_team_score => nil).each do |game| %>
+      <tr>
+	<td><%= game.home_team %></td>
+	<td><%= game.away_team %></td>
+	<td>
+	  <% case game.date.wday %>
+	  <% when 0 %>
+	    <%= "Sunday #{game.date.strftime("%m/%d")}, #{game.date.strftime("%I:%M %p")}" %> 
+	  <% when 1 %>
+	    <%= "Monday #{game.date.strftime("%m/%d")}, #{game.date.strftime("%I:%M %p")}" %> 
+	  <% when 2 %>
+	    <%= "Tuesday #{game.date.strftime("%m/%d")}, #{game.date.strftime("%I:%M %p")}" %> 
+	  <% when 3 %>
+	    <%= "Wednesday #{game.date.strftime("%m/%d")}, #{game.date.strftime("%I:%M %p")}" %> 
+	  <% when 4 %>
+	    <%= "Thursday #{game.date.strftime("%m/%d")}, #{game.date.strftime("%I:%M %p")}" %> 
+	  <% when 5 %>
+	    <%= "Friday #{game.date.strftime("%m/%d")}, #{game.date.strftime("%I:%M %p")}" %> 
+	  <% when 6 %>
+	    <%= "Saturday #{game.date.strftime("%m/%d")}, #{game.date.strftime("%I:%M %p")}" %> 
+	  <% end %>
+	</td>
+	<td><%= game.favored_team %></td>
+	<td><%= game.spread %></td>
+	<% if current_user %>
+	  <% has_bet = game.bets.each { |bet| current_user.players.pluck(:id).include? bet.player_id }.first %>
+	  <% if has_bet %>
+	    <td><%= link_to 'Edit bet', edit_bet_path(has_bet)%></td> 
+	  <% else %>
+	    <td><%= link_to 'Place bet', :action => 'new', :controller => 'bets', :game_id => game.id%></td> 
+	  <% end %>
+	<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

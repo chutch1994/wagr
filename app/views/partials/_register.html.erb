@@ -1,0 +1,20 @@
+<!-- Registration Modal -->
+<div class="modal fade" id="registration" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Registration Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Registration</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'devise/registrations/new', resource: User.new, resource_name: :user, devise_mapping: Devise.mappings[:user] %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

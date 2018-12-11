@@ -1,19 +1,26 @@
-<h1>Welcome to Wagr</h1>
-<p>For all your degenerate sports gambling needs.</p>
-
-
-<div id="main-container" class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6">
-      <%= render file: '/welcome/games.html.erb' %>
-    </div>
-    <div class="col-lg-3">
-      <%= render file: '/layouts/leaderboard.html.erb' %>
-    </div>
-
-  <div class="row">
-    <div class="col-lg-4"> 
-      <%= render file: '/layouts/completed_games.html.erb' %>
-    </div>
+<body class="landing-body">
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div id="flash" class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
   </div>
-</div>
+
+  <script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
+})
+  </script>
+
+  <%= render 'partials/signin' %>
+  <%= render 'partials/register' %>
+
+  <div class="landing-content">
+    <h1>Welcome to Wagr</h1>
+    <h4>A place for friendly bets</h4>
+    <button class="landing-btn" data-toggle="modal" data-target="#signIn" style="cursor: pointer">Sign In</button>
+    <br />
+    <button class="landing-btn" data-toggle="modal" data-target="#registration" style="cursor: pointer">Register</button>
+  </div>
+</body>

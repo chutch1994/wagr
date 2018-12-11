@@ -18,6 +18,40 @@ html, body {
   font-family: "Open Sans", Helvetica;
 }
 
+/* Landing page */
+
+.landing-body {
+  background-image: url(pexels-photo-54567.jpeg);
+}
+.landing-btn {
+  width: 150px;
+  height: 50px;
+  border:none;
+  border:solid 2px black;
+  border-radius: 30px;
+  border-color: white;
+  background: rgba(255, 255, 255,0);
+  font-size: 25px;
+  margin: 10px;
+  color: white;
+  opacity: 0.5;
+}
+.landing-btn:hover {
+  background: gray;
+  color: white;
+  opacity: 0.6;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+}
+.landing-content {
+  text-align: center;
+  position: fixed;
+  top: 20%;
+  left: 43%
+}
+/* end Landing page */
 
 /* Navbar */
 .navbar-default {
@@ -45,6 +79,31 @@ html, body {
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   background-color: #0080ff;
   color: white;
+}
+
+.nav-dropdown {
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav-dropdown:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #0080ff;
+}
+
+.dropdown-tab:hover {
+  background: #0055aa;
+}
+
+.dropdown-tab:focus {
+  background: #0055aa;
 }
 /* /Navbar */
 

@@ -20,6 +20,6 @@ class BetPolicy
 
   def update?
     @current_user.admin? or @current_user.id == @bet.user_id
-  end	
+  end
 end
 

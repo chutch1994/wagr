@@ -1,0 +1,21 @@
+<body>
+  <%= render 'partials/nav' %>
+  <h1>Welcome to Wagr</h1>
+  <p>For all your degenerate sports gambling needs.</p>
+
+  <div id="main-container" class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= render file: '/welcome/games.html.erb' %>
+      </div>
+      <div class="col-lg-3">
+        <%= render file: '/layouts/leaderboard.html.erb' %>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4"> 
+          <%= render file: '/layouts/completed_games.html.erb' %>
+        </div>
+      </div>
+    </div>
+</body>

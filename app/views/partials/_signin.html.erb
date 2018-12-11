@@ -1,0 +1,21 @@
+<div id="main-container" class="container-fluid">
+  <!-- Sign In Modal -->
+  <div class="modal fade" id="signIn" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Sign In Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <%= render 'devise/sessions/new', resource: User.new, resource_name: :user, devise_mapping: Devise.mappings[:user] %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
